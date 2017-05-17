@@ -26,13 +26,34 @@ html, body{
 
 #start{
     position: absolute;
-    top: 450px;
+    top: 442px;
     z-index: 9000;
-    width: 35%;
-    height: 90%;
+    width: 28%;
+    height: 92%;
     background-color: #F5F7FA;
-    border: 2px solid black;
-    border-radius: 20px;
+    -webkit-clip-path: polygon(0 0, 95% 0, 52% 100%, 0% 100%);
+    clip-path: polygon(0 0, 95% 0, 52% 100%, 0% 100%);
+    border-radius: 6%;
+}
+#start-clip{
+    position: absolute;
+    top: 450px;
+    z-index: 8000;
+    width: 55%;
+    height: 90%;
+    background-color: black;
+    border-radius: 5%;
+    text-align: right;
+}
+#forum-feed{
+    position: absolute;
+    top: 450px;
+    right: 2px;
+    z-index: 9000;
+    width: 43.5%;
+    height: 90%;
+    border-radius: 6%;
+    background-color: black;
 }
 
 *, *:before, *:after {
@@ -96,3 +117,5 @@ img {
     margin: 0;
     margin-right: 145vh;
 }
+
+nyeh
