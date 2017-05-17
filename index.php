@@ -53,7 +53,9 @@ include("inc/nav-bar.php");
       </div>
     </div>
   </div>
-   <div id="start"><h1>Start for free!</h1></div>
+   <div id="start"><h1>nombah1!!!!!!</h1></div>
+   <div id="start-clip"><h1>Start for free!</h1></div>
+   <div id="forum-feed"><h1>what did you just fucking say to me you rooting tooting high poluting son ova bee licking dipshitsicle</h1></div>
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
