@@ -15,7 +15,7 @@
 </head>
 <body>
     <div id="main-container">
-
+    News
     </div>
 </body>
 </html>
