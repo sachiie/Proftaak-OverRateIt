@@ -14,8 +14,11 @@
   </head>
 </head>
 <body>
-    <div id="main-container">
-    Login/Register
+    <?php
+    include("inc/nav-bar.php");
+    ?>
+    <div id="Login">
+        <h1>Login</h1>
     </div>
 </body>
 </html>
