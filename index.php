@@ -53,9 +53,17 @@ include("inc/nav-bar.php");
       </div>
     </div>
   </div>
-   <div id="start"><h1>nombah1!!!!!!</h1></div>
-   <div id="start-clip"><h1>Start for free!</h1></div>
-   <div id="forum-feed"><h1>what did you just fucking say to me you rooting tooting high poluting son ova bee licking dipshitsicle</h1></div>
+   <div id="start"><h1>Top Users:</h1>
+      <div class="top-users">usernumber1</div>
+      <div class="top-users">usernumber2</div>
+      <div class="top-users">usernumber3</div>
+   </div>
+   <div id="start-clip"><h1 id="sign-up">Sign Up! <br> for free</h1></div>
+   <div id="forum-feed"><h1>placeholder</h1>
+     <!--word vervangen met een forloop dus er is maar een div nodig-->
+     <div id=userpostsfeed>placeholderpost</div>
+     <div id=userpostsfeed>placeholderpost</div>
+   </div>
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -70,6 +78,6 @@ include("inc/nav-bar.php");
         <div id="carousel-container">
         </div>
     </div>
-    
+
 </body>
 </html>
