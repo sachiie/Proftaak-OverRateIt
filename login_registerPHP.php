@@ -1,4 +1,41 @@
+<?php
+include 'inc/conn.php';
+$sql = "";
+$resource = "";
+$username = "";
+$userpassword = "";
+$registerpassword = "";
+$Registeremail = "";
+$registerbattletag = "";
+$battletag = "";
 
+if(isset($_POST['Battletag'])) //these if's make variabless for the input values
+  {
+    $battletag = $_POST["Battletag"]; //the text seatch input variable
+  }
+  else {
+    $battletag = "";
+  }
+if(isset($battletag) && $battletag != "")
+{
+  $insertquery = "INSERT INTO `users` (Battletag)
+VALUES ('".$battletag."')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+}
+  $insert = mysqli_query($conn, $insertquery);
+
+
+
+
+
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,10 +65,7 @@
     <div id="Login_Register">
     	<div id="Login">
         	<h1>Login</h1>
-					
-			<img class="register_image" src="img/widowmaker.png"></img>
-			<img src="img/sombra.png"></img>
-      <div id="InputBack">
+        <div id="InputBack">
       <form method="post" name="login">
   			<div id="InputFields">
   				<label>E-mail</label>
