@@ -15,11 +15,11 @@ html, body{
     height: 800px;
     min-height: 100%;
     background-color: #656D78;
+    background-image: url("../img/homebackground.jpg");
 }
 
 #info-container{
     margin-top: 5%;
-
 }
 
 #info-container img{
@@ -30,14 +30,15 @@ html, body{
 
 #start{
     position: absolute;
-    top: 442px;
+    top: 450px;
     z-index: 9000;
-    width: 28%;
-    height: 92%;
+    width: 35%;
+    height: 90%;
     background-color: #F5F7FA;
     -webkit-clip-path: polygon(0 0, 95% 0, 52% 100%, 0% 100%);
     clip-path: polygon(0 0, 95% 0, 52% 100%, 0% 100%);
-    border-radius: 6%;
+    border-radius: 2%;
+    border: 2px solid white;
 }
 #start-clip{
     position: absolute;
@@ -45,21 +46,47 @@ html, body{
     z-index: 8000;
     width: 55%;
     height: 90%;
-    background-color: red;
-    border-radius: 5%;
+    background-color: rgba(255, 165, 0, 0.9);
+    border-radius: 2%;
+    border: 2px solid #FFA500;
     text-align: right;
+    padding-top: 110px;
+    padding-left: 617px;
+    text-align: center;
+}
+#sign-up{
+  border: 4px solid white;
+  width: 250px;
+  color: white;
+  padding:5px;
+  background-color: #FFA500;
+  -webkit-box-shadow: 4px 4px 0px 0px rgba(255,255,255,1);
+  -moz-box-shadow: 4px 4px 0px 0px rgba(255,255,255,1);
+  box-shadow: 4px 4px 0px 0px rgba(255,255,255,1);
+}
+#userpostsfeed{
+  width: 700px;
+  height: 100px;
+  color: black;
+  background-color: white;
+  margin-bottom: 4px;
 }
 #forum-feed{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     position: absolute;
     top: 450px;
     right: 2px;
     z-index: 9000;
     width: 43.5%;
     height: 90%;
-    border-radius: 6%;
-    background-color: blue;
+    border: 2px solid #FFA500;
+    border-radius: 2%;
+    background-color: rgba(255, 165, 0, 0.9);
+    text-align: center;
+    color: white;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -121,6 +148,17 @@ img {
     margin: 0;
     margin-right: 145vh;
 }
+
+.top-users{
+  background-color: black;
+  height: 90px;
+  width: 100px;
+  margin-bottom: 4px;
+  margin-left: 20px;
+  z-index: 1;
+  color: white;
+  font-family: 'Libre Franklin', sans-serif;
+}
 #Login_Register{
     display: flex;
     align-items: flex-start;
@@ -142,7 +180,7 @@ img {
     width: 220px;
 }
 #Register{
-    
+
     width: 50%;
     height: 100%;
     border-right: 2px solid black;
@@ -152,10 +190,11 @@ img {
     margin-left: 40%;
 }
 #InputBack{
-	background-color: gray;
-	margin-left: 35%;
-	width: 400px;
+    background-color: gray;
+    margin-left: 35%;
+    width: 400px;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 nyeh
 =======
@@ -185,6 +224,9 @@ nyeh
 #Login h1{
     margin-top: 250px;
     margin-left: 50%;
+}
+>>>>>>> master
+=======
 }
 >>>>>>> master
 =======

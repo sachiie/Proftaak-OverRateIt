@@ -61,8 +61,8 @@ include("inc/nav-bar.php");
    <div id="start-clip"><h1 id="sign-up">Sign Up! <br> for free</h1></div>
    <div id="forum-feed"><h1>placeholder</h1>
      <!--word vervangen met een forloop dus er is maar een div nodig-->
-     <div id=userpostsfeed>placeholderpost</div>
-     <div id=userpostsfeed>placeholderpost</div>
+     <div id=userpostsfeed>placeholderpost1</div>
+     <div id=userpostsfeed>placeholderpost2</div>
    </div>
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
