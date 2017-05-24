@@ -1,4 +1,42 @@
+<?php
+include 'inc/conn.php';
+$sql = "";
+$resource = "";
+$username = "";
+$userpassword = "";
+$registerpassword = "";
+$Registeremail = "";
+$battletag = "";
+$registrationvalidation = "";
+if(isset($_POST['Battletag'])) //these if's make variabless for the input values
+  {
+    $battletag = $_POST["Battletag"]; //the text seatch input variable
+  }
+  else {
+    $battletag = "";
+  }
+   $registrationvalidation = 'SELECT `Battletag` FROM `users` WHERE `Battletag`='.$battletag.'';
+   $rowcount=mysqli_query($conn,$registrationvalidation);
 
+ if(mysqli_num_rows($rowcount)>=1)
+   {
+    echo"name already exists";
+   }
+   elseif(isset($battletag) && $battletag != ""){
+    $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
+   }
+
+   if ($conn->query($sql) === TRUE) {
+       echo "New record created successfully";
+   } else {
+       echo "Error: " . $sql . "<br>" . $conn->error;
+   }
+
+   // //die($q);
+   // $rowcount=mysqli_num_rows($registrationvalidation);
+   // printf("Result set has %d rows.\n",$rowcount);
+   // die();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,6 +86,8 @@
         <div id="InputBack">
           <form method="post" name="register">
       			<div id="InputFields">
+              <label>Username</label>
+      				<input id="input-Username" type="text" placeholder="Battletag..." name="Username" class="form-control" required>
       				<label>Battletag</label>
       				<input id="input-Battletag" type="text" placeholder="Battletag..." name="Battletag" class="form-control" required>
       				<label>E-Mail</label>
