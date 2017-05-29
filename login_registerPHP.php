@@ -15,7 +15,7 @@ if(isset($_POST['Battletag'])) //these if's make variabless for the input values
   else {
     $battletag = "";
   }
-   $registrationvalidation = 'SELECT `Battletag` FROM `users` WHERE `Battletag`='.$battletag.'';
+   $registrationvalidation = "SELECT `Battletag` FROM `users` WHERE `Battletag`='".$battletag."'";
    $rowcount=mysqli_query($conn,$registrationvalidation);
 
  if(mysqli_num_rows($rowcount)>=1)
@@ -86,8 +86,7 @@ if(isset($_POST['Battletag'])) //these if's make variabless for the input values
         <div id="InputBack">
           <form method="post" name="register">
       			<div id="InputFields">
-              <label>Username</label>
-      				<input id="input-Username" type="text" placeholder="Battletag..." name="Username" class="form-control" required>
+
       				<label>Battletag</label>
       				<input id="input-Battletag" type="text" placeholder="Battletag..." name="Battletag" class="form-control" required>
       				<label>E-Mail</label>
