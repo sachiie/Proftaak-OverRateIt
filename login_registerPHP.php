@@ -1,41 +1,112 @@
 <?php
+session_start();
+error_reporting(E_ALL);
+
 include 'inc/conn.php';
 $sql = "";
 $resource = "";
 $username = "";
 $userpassword = "";
 $registerpassword = "";
+$registerpasswordConformation = "";
 $Registeremail = "";
+$RegistermailConformation ="";
 $battletag = "";
 $registrationvalidation = "";
+
+//filling the variabless
+
 if(isset($_POST['Battletag'])) //these if's make variabless for the input values
+{
+  $battletag = $_POST["Battletag"]; //the text seatch input variable
+}
+else
+{
+  $battletag = "";
+}
+
+if(isset($_POST['EMailRegister'])) //these if's make variabless for the input values
+{
+  $Registeremail = $_POST["EMailRegister"]; //the text seatch input variable
+}
+else
+{
+  $Registeremail = "";
+}
+
+if(isset($_POST['ConEmailRegister'])) //these if's make variabless for the input values
+{
+  $RegistermailConformation = $_POST["ConEmailRegister"]; //the text seatch input variable
+}
+else
+{
+  $RegistermailConformation = "";
+}
+
+if(isset($_POST['PasswordRegister'])) //these if's make variabless for the input values
+{
+  $registerpassword = $_POST["PasswordRegister"]; //the text seatch input variable
+}
+else
+{
+  $registerpassword = "";
+}
+if(isset($_POST['ConPasswordRegister'])) //these if's make variabless for the input values
+{
+  $registerpasswordConformation = $_POST["ConPasswordRegister"]; //the text seatch input variable
+}
+else
+{
+  $registerpasswordConformation = "";
+}
+
+$registrationvalidation = "SELECT `Battletag` FROM `users` WHERE `Battletag`='".$battletag."'";
+$rowcount=mysqli_query($conn,$registrationvalidation);
+
+if(mysqli_num_rows($rowcount)>=1)
+{
+  echo"battletag already exists";
+}
+elseif(isset($battletag) && $battletag != "")
+{
+  $registrationvalidation = "SELECT `Email` FROM `users` WHERE `Email`='".$Registeremail."'";
+  $rowcount=mysqli_query($conn,$registrationvalidation);
+
+  if(mysqli_num_rows($rowcount)>=1)
   {
-    $battletag = $_POST["Battletag"]; //the text seatch input variable
+    echo"email already exists";
   }
-  else {
-    $battletag = "";
+  elseif(isset($Registeremail) && $Registeremail != "")
+  {
+    $registrationvalidation = "SELECT `Password` FROM `users` WHERE `Password`='".$registerpassword."'";
+    $rowcount=mysqli_query($conn,$registrationvalidation);
+    if(mysqli_num_rows($rowcount)>=1)
+    {
+    echo"password already exists";
+    }
+    elseif(isset($registerpassword) && $registerpassword != "" && $registerpassword == $registerpasswordConformation && $Registeremail == $RegistermailConformation)
+    {
+      $sql = "INSERT  INTO `users` (`Email`, `Battletag`, `Password`) VALUES ('".$Registeremail."', '".$battletag."', '".$registerpassword."')";
+    }
   }
-   $registrationvalidation = "SELECT `Battletag` FROM `users` WHERE `Battletag`='".$battletag."'";
-   $rowcount=mysqli_query($conn,$registrationvalidation);
+}
 
- if(mysqli_num_rows($rowcount)>=1)
-   {
-    echo"name already exists";
-   }
-   elseif(isset($battletag) && $battletag != ""){
-    $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
-   }
-
-   if ($conn->query($sql) === TRUE) {
-       echo "New record created successfully";
-   } else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-   }
-
-   // //die($q);
-   // $rowcount=mysqli_num_rows($registrationvalidation);
-   // printf("Result set has %d rows.\n",$rowcount);
-   // die();
+if ($conn->query($sql) === TRUE)
+{
+   echo "New user created successfully";
+}
+else
+{
+   echo "Error: " . $sql . "<br>" . $conn->error;
+}
+/*
+elseif(isset($battletag) && $battletag != ""){
+$sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
+// //die($q);
+// $rowcount=mysqli_num_rows($registrationvalidation);
+// printf("Result set has %d rows.\n",$rowcount);
+// die();
+*/
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,16 +138,16 @@ if(isset($_POST['Battletag'])) //these if's make variabless for the input values
     	<div id="Login">
         	<h1>Login</h1>
         <div id="InputBack">
-      <form method="post" name="login">
+      <form method="post" action="handle_login.php" name="login">
   			<div id="InputFields">
   				<label>E-mail</label>
   				<input id="input-EMail" type="text" placeholder="E-mail..." name="Email" class="form-control" required>
   				<label>Password</label>
-  				<input id="input-password" type="text" placeholder="Password..." name="password" class="form-control" required>
+  				<input id="input-password" type="password" placeholder="Password..." name="password" class="form-control" required>
   				<label>Remember?</label>
   				<input id="RememberPass" type="checkbox" name="RememberPass">
   				<br>
-  				<input type="submit" value="Submit" class="btn button">
+  				<input type="submit" name="myLogin" value="Submit" class="btn button">
   			</div>
     </form>
 		</div>
@@ -90,13 +161,13 @@ if(isset($_POST['Battletag'])) //these if's make variabless for the input values
       				<label>Battletag</label>
       				<input id="input-Battletag" type="text" placeholder="Battletag..." name="Battletag" class="form-control" required>
       				<label>E-Mail</label>
-      				<input id="input-E-Mail" type="text" placeholder="E-mail..." name="E-Mail" class="form-control" required>
+      				<input id="input-E-Mail" type="text" placeholder="E-mail..." name="EMailRegister" class="form-control" required>
       				<label>Confirm E-Mail</label>
-      				<input id="input-Con-E-Mail" type="text" placeholder="Confirm E-mail..." name="Con-E-Mail" class="form-control" required>
+      				<input id="input-Con-E-Mail" type="text" placeholder="Confirm E-mail..." name="ConEmailRegister" class="form-control" required>
       				<label>Password</label>
-      				<input id="input-Pass" type="text" name="Pass" placeholder="Password..." class="form-control" required>
+      				<input id="input-Pass" type="text" name="PasswordRegister" placeholder="Password..." class="form-control" required>
       				<label>Confirm Password</label>
-      				<input id="input-Con-Pass" type="text" name="Con-Pass" placeholder="Confirm Password..." class="form-control" required>
+      				<input id="input-Con-Pass" type="text" name="ConPasswordRegister" placeholder="Confirm Password..." class="form-control" required>
       				<label>Terms&Agree</label>
       				<input id="TermsAndAgree" type="checkbox" name="TermsAndAgree">
       				<br>
