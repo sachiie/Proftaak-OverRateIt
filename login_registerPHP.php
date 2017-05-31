@@ -1,13 +1,48 @@
 <?php
+<<<<<<< HEAD
+=======
 session_start();
 error_reporting(E_ALL);
 
+>>>>>>> master
 include 'inc/conn.php';
 $sql = "";
 $resource = "";
 $username = "";
 $userpassword = "";
 $registerpassword = "";
+<<<<<<< HEAD
+$Registeremail = "";
+$registerbattletag = "";
+$battletag = "";
+
+if(isset($_POST['Battletag'])) //these if's make variabless for the input values
+  {
+    $battletag = $_POST["Battletag"]; //the text seatch input variable
+  }
+  else {
+    $battletag = "";
+  }
+if(isset($battletag) && $battletag != "")
+{
+  $insertquery = "INSERT INTO `users` (Battletag)
+VALUES ('".$battletag."')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+}
+  $insert = mysqli_query($conn, $insertquery);
+
+
+
+
+
+
+
+=======
 $registerpasswordConformation = "";
 $Registeremail = "";
 $RegistermailConformation ="";
@@ -107,6 +142,7 @@ $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
 // printf("Result set has %d rows.\n",$rowcount);
 // die();
 */
+>>>>>>> master
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,16 +174,28 @@ $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
     	<div id="Login">
         	<h1>Login</h1>
         <div id="InputBack">
+<<<<<<< HEAD
+      <form method="post" name="login">
+=======
       <form method="post" action="handle_login.php" name="login">
+>>>>>>> master
   			<div id="InputFields">
   				<label>E-mail</label>
   				<input id="input-EMail" type="text" placeholder="E-mail..." name="Email" class="form-control" required>
   				<label>Password</label>
+<<<<<<< HEAD
+  				<input id="input-password" type="text" placeholder="Password..." name="password" class="form-control" required>
+  				<label>Remember?</label>
+  				<input id="RememberPass" type="checkbox" name="RememberPass">
+  				<br>
+  				<input type="submit" value="Submit" class="btn button">
+=======
   				<input id="input-password" type="password" placeholder="Password..." name="password" class="form-control" required>
   				<label>Remember?</label>
   				<input id="RememberPass" type="checkbox" name="RememberPass">
   				<br>
   				<input type="submit" name="myLogin" value="Submit" class="btn button">
+>>>>>>> master
   			</div>
     </form>
 		</div>
@@ -157,6 +205,18 @@ $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
         <div id="InputBack">
           <form method="post" name="register">
       			<div id="InputFields">
+<<<<<<< HEAD
+      				<label>Battletag</label>
+      				<input id="input-Battletag" type="text" placeholder="Battletag..." name="Battletag" class="form-control" required>
+      				<label>E-Mail</label>
+      				<input id="input-E-Mail" type="text" placeholder="E-mail..." name="E-Mail" class="form-control" required>
+      				<label>Confirm E-Mail</label>
+      				<input id="input-Con-E-Mail" type="text" placeholder="Confirm E-mail..." name="Con-E-Mail" class="form-control" required>
+      				<label>Password</label>
+      				<input id="input-Pass" type="text" name="Pass" placeholder="Password..." class="form-control" required>
+      				<label>Confirm Password</label>
+      				<input id="input-Con-Pass" type="text" name="Con-Pass" placeholder="Confirm Password..." class="form-control" required>
+=======
 
       				<label>Battletag</label>
       				<input id="input-Battletag" type="text" placeholder="Battletag..." name="Battletag" class="form-control" required>
@@ -168,6 +228,7 @@ $sql = "INSERT  INTO `users` (Battletag) VALUES ('".$battletag."')";
       				<input id="input-Pass" type="text" name="PasswordRegister" placeholder="Password..." class="form-control" required>
       				<label>Confirm Password</label>
       				<input id="input-Con-Pass" type="text" name="ConPasswordRegister" placeholder="Confirm Password..." class="form-control" required>
+>>>>>>> master
       				<label>Terms&Agree</label>
       				<input id="TermsAndAgree" type="checkbox" name="TermsAndAgree">
       				<br>
